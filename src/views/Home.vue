@@ -1,15 +1,20 @@
 <template>
-  <hello-world />
+  <column />
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import Column from "../components/High-chart/Column/index.vue";
+import { mapGetters } from "vuex";
+import { FETCH_COLUMN_DATA } from "@/store/actions.type";
+export default {
+  name: "Home",
 
-  export default {
-    name: 'Home',
+  components: {
+    Column,
+  },
 
-    components: {
-      HelloWorld,
-    },
-  }
+  created() {
+    this.$store.dispatch(FETCH_COLUMN_DATA);
+  },
+};
 </script>
